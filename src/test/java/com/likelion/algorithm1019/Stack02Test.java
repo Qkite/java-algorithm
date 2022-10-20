@@ -5,6 +5,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.util.EmptyStackException;
 import java.util.Stack;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -32,12 +33,14 @@ class Stack02Test {
         assertEquals(20, stack02.pop());
         assertEquals(10, stack02.pop());
 
-        stack02.pop();
-
-
+        // exception의 검증: assertionThrows와 람다 표현식을 사용해서 구현
+        // stack이 비어있을 때 EmptyStackException이 잘 나는지 확인
+        assertThrows(EmptyStackException.class, () -> {
+            stack02.pop(); // stack pop을 했을 때 이 error가 나는지?
+        }); 
     }
 
-    // stack이 비어있을 때는? -> isEmpty
+
     @Test
     void isEmpty(){
         Stack02 stack02 = new Stack02();
@@ -51,6 +54,8 @@ class Stack02Test {
     @Test
     void realStack(){
         Stack<Integer> st= new Stack<>();
-        st.pop();
+        assertThrows(EmptyStackException.class, ()-> {
+            st.pop();
+        });
     }
 }
