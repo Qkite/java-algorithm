@@ -5,6 +5,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.util.Stack;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class Stack02Test {
@@ -30,10 +32,25 @@ class Stack02Test {
         assertEquals(20, stack02.pop());
         assertEquals(10, stack02.pop());
 
-        // stack이 비어있을 때는? -> isEmpty
+        stack02.pop();
 
 
+    }
 
+    // stack이 비어있을 때는? -> isEmpty
+    @Test
+    void isEmpty(){
+        Stack02 stack02 = new Stack02();
+        assertTrue(stack02.isEmpty());
+        stack02.push(10);
+        assertFalse(stack02.isEmpty());
+        stack02.pop();
+        assertTrue(stack02.isEmpty());
+    }
 
+    @Test
+    void realStack(){
+        Stack<Integer> st= new Stack<>();
+        st.pop();
     }
 }
