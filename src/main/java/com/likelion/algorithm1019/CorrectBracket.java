@@ -45,6 +45,7 @@ public class CorrectBracket {
             
         } catch (Exception e) {
             answer = false;
+            // stack이 비어있으면 EmptyStackException
         }
         return answer;
     }
