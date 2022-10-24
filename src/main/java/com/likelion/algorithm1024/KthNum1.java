@@ -13,6 +13,7 @@ public class KthNum1 {
 
         int idx = 0;
 
+
         for (int[] command: commands) {
 
             PriorityQueue<Integer> pq = new PriorityQueue<>();
