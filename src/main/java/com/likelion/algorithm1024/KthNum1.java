@@ -16,11 +16,10 @@ public class KthNum1 {
         for (int[] command: commands) {
 
             PriorityQueue<Integer> pq = new PriorityQueue<>();
-            int[] arr1  = Arrays.copyOfRange(array, command[0]-1, command[1]);
 
-            for (int i = 0; i < arr1.length; i++) {
+            for (int i = command[0]-1; i < command[1]; i++) {
 
-                pq.add(arr1[i]);
+                pq.add(array[i]);
             }
 
             for (int i = 0; i < command[2]-1; i++) {
