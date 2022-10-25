@@ -1,35 +1,39 @@
-package com.likelion.algorithm1925;
+package com.likelion.algorithm1025;
 
-public class HashTable1 {
+public class HashTable {
+    // Hash 함수를 이용해서 array에 접근하는 자료구조
+    // 값을 넣을 때와 뺄 때 모두 hash(key)를 사용함
+    // 접근 속도가 O(1)이다.
 
     private int size = 10000;
-    int[] valueArray= new int[size];
+    private int[] table = new int[size];
 
-    public HashTable1(){
+    public HashTable(){
 
     }
 
-    public HashTable1(int size){
+    public HashTable(int size){
         this.size = size;
+        this.table = new int[size];
     }
-
 
     public int hash(String key){
-        int asciiSum = 0;
+        int asciiSum=0;
         for (int i = 0; i < key.length(); i++) {
             asciiSum += key.charAt(i);
         }
 
-        return asciiSum%size;
+        return asciiSum % size;
     }
 
+    // key와 value를 받는 insert 함수를 통해 array에 저장
     public void insert(String key, int value){
-        valueArray[hash(key)] = value;
+        this.table[hash(key)] = value;
         System.out.printf("%s가 %d 번 방에 저장되었습니다\n",key, value);
     }
 
     public int search(String key){
-        return valueArray[hash(key)];
+        return this.table[hash(key)];
     }
 
     public static void main(String[] args) {
@@ -45,15 +49,17 @@ public class HashTable1 {
                 "MunjuJo", "YejiJo", "ChanminJu", "MinjunChoi", "SujeongChoi", "SeunghoChoi", "AyeongChoi", "GeonjooHan",
                 "JinhyuckHeo", "MinwooHwang", "SieunHwang", "JunhaHwang"};
 
-        HashTable1 hashTable1 = new HashTable1(names.length);
-        for (String name: names) {
-            hashTable1.insert(name, hashTable1.hash(name));
+        HashTable ht = new HashTable(200);
+        for (int i=0; i< names.length; i++){
+            ht.insert(names[i], ht.hash(names[i]));
         }
 
         // 해쉬가 충돌하는 상태
-        System.out.println(hashTable1.search("SeunghwanJeon"));
-        System.out.println(hashTable1.search("DaehwanJung"));
-
+        System.out.println(ht.search("DongyeonKang"));
+        System.out.println(ht.search("JiyoungAhn"));
 
     }
+
+
+
 }

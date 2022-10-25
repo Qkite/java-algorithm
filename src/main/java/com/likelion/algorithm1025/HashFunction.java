@@ -1,4 +1,4 @@
-package com.likelion.algorithm1925;
+package com.likelion.algorithm1025;
 
 public class HashFunction {
     // 핵심 로직 1
