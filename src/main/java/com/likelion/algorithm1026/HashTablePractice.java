@@ -9,6 +9,15 @@ public class HashTablePractice {
 
     int size = 10000;
 
+    HashTablePractice(){
+
+    }
+
+    HashTablePractice(int size){
+        this.size = size;
+    }
+
+
     // key와 value를 둘다 넣는 방법 --> 내부 클래스를 구현
     class Node {
         private String key;
@@ -55,19 +64,19 @@ public class HashTablePractice {
 
     public static void main(String[] args) {
 
-        HashTable2 hashTable2 = new HashTable2();
-        hashTable2.insert("Yoonseo", 1);
-        hashTable2.insert("Seoyoon", 2);
+        HashTablePractice hashTablePractice = new HashTablePractice();
+        hashTablePractice.insert("Yoonseo", 1);
+        hashTablePractice.insert("Seoyoon", 2);
 
         // 해쉬 충돌 문제 해결
 
-        if (hashTable2.get("Yoonseo") == 1) {
+        if (hashTablePractice.search("Yoonseo") == 1) {
             System.out.println("테스트 성공");
         } else {
             System.out.println("테스트 실패");
         }
 
-        if (hashTable2.get("Seoyoon") == 2) {
+        if (hashTablePractice.search("Seoyoon") == 2) {
             System.out.println("테스트 성공");
         } else {
             System.out.println("테스트 실패");
