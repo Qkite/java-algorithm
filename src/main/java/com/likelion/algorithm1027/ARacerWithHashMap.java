@@ -13,24 +13,34 @@ public class ARacerWithHashMap {
 
         // String에 동명이인이 있으면 String에 1을 넣고 출력할 때는 빼기 -> ?
 
-        for (int i=0; i<participant.length; i++){
-            String key = participant[i];
+        for (String com:completion) {
+            memo.put(com, memo.get(com)-1);
+        }
 
-            if(memo.containsKey(key)){
-                memo.put(key, memo.get(key)+1);
-            } else{
-                memo.put(key, 1);
-            }
+//        for (int i=0; i<participant.length; i++){
+//            String key = participant[i];
+//
+//            if(memo.containsKey(key)){
+//                memo.put(key, memo.get(key)+1);
+//            } else{
+//                memo.put(key, 1);
+//            }
+
 
             // 동명이인 문제를 해결하기 위해 1로 초기화를 하는 것이 아니라 count를 올린다
             // nullpointerException
 
+
+        for (String com:completion) {
+            memo.put(com, memo.get(com)-1);
+
         }
 
-        for (int i = 0; i < completion.length; i++) {
-            String key = completion[i];
-            memo.put(key, memo.get(key)-1);
-        }
+//        for (int i = 0; i < completion.length; i++) {
+//            String key = completion[i];
+//            memo.put(key, memo.get(key)-1);
+
+//        }
         
 
         for (String key:memo.keySet()) {
