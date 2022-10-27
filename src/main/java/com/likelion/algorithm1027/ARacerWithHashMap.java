@@ -15,12 +15,21 @@ public class ARacerWithHashMap {
 
         for (int i=0; i<participant.length; i++){
             String key = participant[i];
-            memo.put(key, 1);
+
+            if(memo.containsKey(key)){
+                memo.put(key, memo.get(key)+1);
+            } else{
+                memo.put(key, 1);
+            }
+
+            // 동명이인 문제를 해결하기 위해 1로 초기화를 하는 것이 아니라 count를 올린다
+            // nullpointerException
+
         }
 
         for (int i = 0; i < completion.length; i++) {
             String key = completion[i];
-            memo.put(key, 0);
+            memo.put(key, memo.get(key)-1);
         }
         
 
