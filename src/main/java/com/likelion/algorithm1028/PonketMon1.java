@@ -12,7 +12,8 @@ public class PonketMon1 {
 
         for (int num:nums) {
             if(hashMap.get(num) == null){
-                hashMap.put(num, 0);
+                hashMap.put(num, 1);
+                // 제일 처음 나올 때의 값을 1로 초기화함
             } else{
                 hashMap.put(num, hashMap.get(num)+1);
             }
