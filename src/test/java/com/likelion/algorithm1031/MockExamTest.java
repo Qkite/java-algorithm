@@ -9,7 +9,9 @@ class MockExamTest {
     @Test
     void test1(){
         MockExam mockExam = new MockExam();
-        mockExam.solution(new int[] {1,2,3,4,5});
+        int []result = mockExam.solution(new int[] {1,2,3,4,5});
+
+        assertEquals(result, new int[] {1});
 
     }
 

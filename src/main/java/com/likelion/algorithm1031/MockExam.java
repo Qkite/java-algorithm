@@ -13,8 +13,8 @@ public class MockExam {
      */
 
     public int[] solution(int[] answers) {
-        int[] answer = {};
-        ArrayList<Integer> count = new ArrayList<>(3);
+        int[] answer = new int[3];
+        int[] count = new int[3];
 
         // 10000
 
@@ -24,7 +24,7 @@ public class MockExam {
 
         for (int i = 0; i < answer.length; i++) {
             if(answer1[i].equals(answer[i])){
-                count.add([0]++;
+                count[0]++ ;
             }
             if(answer2[i].equals(answer[i])){
                 count[1]++;
@@ -33,9 +33,22 @@ public class MockExam {
                 count[2]++;
             }
         }
+        int maxNum = Math.max(Math.max(count[0],count[1]),count[2]);
+        String answerString = "";
 
-        Math.max(Math.max(count[0], count[1]),count[2])
+        if(maxNum <= count[0]){
+            answerString += "1";
+        }
+        if(maxNum <= count[1]){
+            answerString += "2";
+        }
+        if(maxNum<= count[1]){
+            answerString += "3";
+        }
 
+        for (int i = 0; i < answerString.length(); i++) {
+            answer[i] = Integer.parseInt(String.valueOf(answerString.charAt(i)));
+        }
 
         return answer;
     }
