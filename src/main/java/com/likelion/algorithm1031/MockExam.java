@@ -1,6 +1,6 @@
 package com.likelion.algorithm1031;
 
-import java.util.ArrayList;
+import java.util.*;
 
 public class MockExam {
 
@@ -13,50 +13,56 @@ public class MockExam {
      */
 
     public int[] solution(int[] answers) {
-        int[] answer = new int[3];
+
         int[] count = new int[3];
 
-        // 10000
 
-        String[] answer1 = "1,2,3,4,5".repeat(10000/5).split(",");
-        String[] answer2 = "2,1,2,3,2,4,2,5".repeat(10000/8).split(",");
-                    String[] answer3 = "3,3,1,1,2,2,4,4,5,5".repeat(10000/10).split(",");
+        String[] answer1 = "1,2,3,4,5,".repeat(10000/5).split(",");
+        String[] answer2 = "2,1,2,3,2,4,2,5,".repeat(10000/8).split(",");
+        String[] answer3 = "3,3,1,1,2,2,4,4,5,5,".repeat(10000/10).split(",");
 
-            //String과 Integer하면 equals해서 안 먹음
 
-            for (int i = 0; i < answers.length; i++) {
-                if(Integer.parseInt(answer1[i]) == answers[i]){
-                    count[0]++ ;
-                }
-                if(Integer.parseInt(answer2[i]) ==answers[i]){
-                    count[1]++ ;
-                }
-                if(Integer.parseInt(answer3[i]) ==answers[i]){
-                    count[2]++ ;
-                }
+        for (int i = 0; i < answers.length; i++) {
+            if(Integer.parseInt(answer1[i]) == answers[i]){
+                count[0]++ ;
             }
+            if(Integer.parseInt(answer2[i]) ==answers[i]){
+                count[1]++ ;
+            }
+            if(Integer.parseInt(answer3[i]) ==answers[i]){
+                count[2]++ ;
+            }
+        }
 
         int maxNum = Math.max(Math.max(count[0],count[1]),count[2]);
 
-            System.out.println(maxNum);
-            System.out.println(count[0]);
-            System.out.println(count[1]);
-            System.out.println(count[2]);
-            String answerString = "";
 
-        if(maxNum <= count[0]){
+        String answerString = "";
+
+        if(maxNum == count[0]){
             answerString += "1";
         }
-        if(maxNum <= count[1]){
+        if(maxNum == count[1]){
             answerString += "2";
         }
-        if(maxNum<= count[2]){
+        if(maxNum == count[2]){
             answerString += "3";
         }
 
+        List<Integer> list1 = new ArrayList<>();
+
         for (int i = 0; i < answerString.length(); i++) {
-            answer[i] = Integer.parseInt(String.valueOf(answerString.charAt(i)));
+            list1.add(Character.getNumericValue(answerString.charAt(i)));
         }
+
+        int[] answer = new int[list1.size()];
+
+        for (int i = 0; i < list1.size(); i++) {
+            answer[i] = list1.get(i);
+        }
+
+
+        System.out.println(Arrays.toString(answer));
 
         return answer;
     }
