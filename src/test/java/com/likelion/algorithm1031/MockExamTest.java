@@ -9,7 +9,7 @@ class MockExamTest {
     @Test
     void test1(){
         MockExam mockExam = new MockExam();
-        mockExam.solution(int[] {1,2,3,4,5});
+        mockExam.solution(new int[] {1,2,3,4,5});
 
     }
 
