@@ -20,20 +20,26 @@ public class MockExam {
 
         String[] answer1 = "1,2,3,4,5".repeat(10000/5).split(",");
         String[] answer2 = "2,1,2,3,2,4,2,5".repeat(10000/8).split(",");
-        String[] answer3 = "3,3,1,1,2,2,4,4,5,5".repeat(10000/10).split(",");
+                    String[] answer3 = "3,3,1,1,2,2,4,4,5,5".repeat(10000/10).split(",");
 
-        for (int i = 0; i < answer.length; i++) {
-            if(answer1[i].equals(answer[i])){
-                count[0]++ ;
+            //String과 Integer하면 equals해서 안 먹음
+
+            for (int i = 0; i < answers.length; i++) {
+                if(Integer.parseInt(answer1[i]) == answers[i]){
+                    count[0]++ ;
+                }
+                if(Integer.parseInt(answer2[i]) ==answers[i]){
+                count[1]++ ;
             }
-            if(answer2[i].equals(answer[i])){
-                count[1]++;
-            }
-            if(answer3[i].equals(answer[i])){
-                count[2]++;
+            if(Integer.parseInt(answer3[i]) ==answers[i]){
+                count[2]++ ;
             }
         }
         int maxNum = Math.max(Math.max(count[0],count[1]),count[2]);
+        System.out.println(maxNum);
+        System.out.println(count[0]);
+        System.out.println(count[1]);
+        System.out.println(count[2]);
         String answerString = "";
 
         if(maxNum <= count[0]){
@@ -42,7 +48,7 @@ public class MockExam {
         if(maxNum <= count[1]){
             answerString += "2";
         }
-        if(maxNum<= count[1]){
+        if(maxNum<= count[2]){
             answerString += "3";
         }
 
