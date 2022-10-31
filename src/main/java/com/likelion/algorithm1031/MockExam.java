@@ -29,18 +29,20 @@ public class MockExam {
                     count[0]++ ;
                 }
                 if(Integer.parseInt(answer2[i]) ==answers[i]){
-                count[1]++ ;
+                    count[1]++ ;
+                }
+                if(Integer.parseInt(answer3[i]) ==answers[i]){
+                    count[2]++ ;
+                }
             }
-            if(Integer.parseInt(answer3[i]) ==answers[i]){
-                count[2]++ ;
-            }
-        }
+
         int maxNum = Math.max(Math.max(count[0],count[1]),count[2]);
-        System.out.println(maxNum);
-        System.out.println(count[0]);
-        System.out.println(count[1]);
-        System.out.println(count[2]);
-        String answerString = "";
+
+            System.out.println(maxNum);
+            System.out.println(count[0]);
+            System.out.println(count[1]);
+            System.out.println(count[2]);
+            String answerString = "";
 
         if(maxNum <= count[0]){
             answerString += "1";
