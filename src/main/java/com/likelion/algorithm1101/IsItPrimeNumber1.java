@@ -1,5 +1,8 @@
 package com.likelion.algorithm1101;
 
+interface StatementStrategy{
+    boolean compare(int a, int b);
+}
 
 public class IsItPrimeNumber1 {
 
@@ -8,10 +11,8 @@ public class IsItPrimeNumber1 {
         return a<b;
     }
 
-    boolean isPrime(int num){
-
-
-        for (int i = 2; someOperation(i, num); i++) {
+    boolean isPrime(int num, StatementStrategy stmt){
+        for (int i = 2; stmt.compare(i, num); i++) {
             if(num%i==0){
                 return false;
             }
