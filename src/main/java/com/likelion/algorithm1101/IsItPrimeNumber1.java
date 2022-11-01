@@ -19,6 +19,7 @@ public class IsItPrimeNumber1 {
     }
 
     public static void main(String[] args) {
+
         IsItPrimeNumber1 isItPrimeNumber1 = new IsItPrimeNumber1();
         System.out.println(isItPrimeNumber1.isPrime(13, new StatementStrategy() {
             @Override
@@ -26,12 +27,9 @@ public class IsItPrimeNumber1 {
                 return a<b;
             }
         }));
-        System.out.println(isItPrimeNumber1.isPrime(25, new StatementStrategy() {
-            @Override
-            public boolean compare(int a, int b) {
-                return a<b;
-            }
-        }));
+        System.out.println(isItPrimeNumber1.isPrime(25, (a,b) -> a<b/2));
+        System.out.println(isItPrimeNumber1.isPrime(37, (a,b) -> a*a<b/2));
+
     }
 
 
