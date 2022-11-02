@@ -44,7 +44,7 @@ public class IsITPrimeNumber2 {
 
 
         for (int i = 0; i < element; i++) {
-            for (int j = i; j < numArray.length; j++) {
+            for (int j = i+1; j < numArray.length; j++) {
                 if(numArray[j] %numArray[i] ==0 ){
                     isItCompositionNumber[j] = true;
                 }
@@ -52,12 +52,15 @@ public class IsITPrimeNumber2 {
         }
         int sum = 0;
 
-        for (int i = 0; i < numArray.length; i++) {
-            sum += numArray[i];
+        for (int i = 0; i < isItCompositionNumber.length; i++) {
+
+            if(isItCompositionNumber[i] == false){
+                sum++;
+            }
 
         }
 
-        return N-1-sum;
+        return sum;
     }
 
 
