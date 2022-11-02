@@ -30,6 +30,7 @@ public class IsITPrimeNumber2 {
 
     // remove를 하면 그 원소를 지우고 배열을 다시 생성 --> add와 remove를 사용하지 않는 방향으로 가는 것이 좋다
     // 배수인지를 나타내는 check 배열을 사용하는 것이 좋음
+    // 효율성 문제가 생기는뎅...?
 
     public int solution2(int N){
 
