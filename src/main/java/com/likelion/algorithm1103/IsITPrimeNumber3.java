@@ -1,4 +1,4 @@
-package com.likelion.algorithm1102;
+package com.likelion.algorithm1103;
 
 // 에라토스테네스의 체
 
@@ -8,7 +8,10 @@ import java.util.List;
 
 public class IsITPrimeNumber3 {
 
+    // 효율성 문제-> 런타임에러(메모리 줄이기- 재귀함수 이용 줄이기, 내장함수의 파라미터 개수 줄이기/ 시간초과)
+
     // % 연산을 하지 않는 것
+    // 배열을 하나만 선언하는 것
 
 
     // 2: 2,4,6,... -> 초항: 2*2-2, 공차: 2
