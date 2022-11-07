@@ -1,9 +1,6 @@
 package com.likelion.algorithm1107;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 public class MakeArrWithDivisor {
 
@@ -14,10 +11,8 @@ public class MakeArrWithDivisor {
         for (int num:arr) {
             if(num %divisor == 0){
                 answer.add(num);
-
             }
         }
-
 
         if(answer.size() == 0){
             answer.add(-1);
@@ -40,7 +35,6 @@ public class MakeArrWithDivisor {
             }
         }
 
-
         int[] answer1 = new int[index];
         int index1 = 0;
 
@@ -51,8 +45,6 @@ public class MakeArrWithDivisor {
             }
         }
 
-
-
         if(answer1.length == 0){
             answer1 = new int[] {-1};
         }
@@ -62,16 +54,42 @@ public class MakeArrWithDivisor {
         return answer1;
     }
 
+    public PriorityQueue<Integer> solution3(int[] arr, int divisor) {
+
+        PriorityQueue<Integer> answer = new PriorityQueue<>();
+
+        for (int num:arr) {
+            if(num %divisor == 0){
+                answer.add(num);
+            }
+        }
+
+        if(answer.size() == 0){
+            answer.add(-1);
+        }
+
+
+        return answer;
+    }
+
+
+
     public static void main(String[] args) {
        MakeArrWithDivisor makeArrWithDivisor = new MakeArrWithDivisor();
        System.out.println(makeArrWithDivisor.solution1(new int[]{5,9,7,10}, 5));
        System.out.println(makeArrWithDivisor.solution1(new int[]{2,36,1,3}, 1));
        System.out.println(makeArrWithDivisor.solution1(new int[]{3,2,6}, 10));
+
        System.out.println(Arrays.toString(makeArrWithDivisor.solution2(new int[]{5, 9, 7, 10}, 5)));
        System.out.println(Arrays.toString(makeArrWithDivisor.solution2(new int[]{2, 36, 1, 3}, 1)));
        System.out.println(Arrays.toString(makeArrWithDivisor.solution2(new int[]{3, 2, 6}, 10)));
 
-    }
+        System.out.println(makeArrWithDivisor.solution3(new int[]{5, 9, 7, 10}, 5));
+        System.out.println(makeArrWithDivisor.solution3(new int[]{2, 36, 1, 3}, 1));
+        System.out.println(makeArrWithDivisor.solution3(new int[]{3, 2, 6}, 10));
 
+
+
+    }
 
 }
