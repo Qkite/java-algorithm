@@ -33,8 +33,8 @@ public class BinarySearch {
 
     public static void main(String[] args) {
         BinarySearch binarySearch = new BinarySearch();
-        System.out.println(binarySearch.getSolution(new int[]{1,2,3,4,5,6,7,8,9,10,11,12,13}, 3));
-        System.out.println(binarySearch.getSolution(new int[]{1,3,4,5,6,7,9,10,11,13,15,16}, 12));
+        System.out.println(binarySearch.getSolution(new int[]{1,2,3,4,5,6,7,8,9,10,1021,1221,1321,1562,15678}, 3));
+        System.out.println(binarySearch.getSolution(new int[]{1,3,4,5,6,7,9,10,1111,13111,15111,1611111}, 15111));
         System.out.println(binarySearch.getSolution(new int[]{1,3,4,5,6,7,9,10,11,13,15,16,22,21,25,28}, 23));
 
 

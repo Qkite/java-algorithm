@@ -9,18 +9,18 @@ public class BinarySearchCodeUp {
         int lastIdx = nums.length-1;
         int midIdx = (firstIdx + lastIdx)/2;
 
-        while(lastIdx - firstIdx>1){
-            // lastIdx > firstIdx로 하면 index 차이가 1개인 경우 index가 업데이트가 되지 않음 -> 무한 루프
-            // 따라서 차이가 2 이상 나는 경우에만 index를 업데이트 하도록 함
-            if(num < nums[midIdx]){
-                lastIdx = midIdx;
-            } else{
-                firstIdx = midIdx;
-            }
-
-            midIdx = (firstIdx + lastIdx)/2;
-
-        }
+//        while(lastIdx - firstIdx>1){
+//            // lastIdx > firstIdx로 하면 index 차이가 1개인 경우 index가 업데이트가 되지 않음 -> 무한 루프
+//            // 따라서 차이가 2 이상 나는 경우에만 index를 업데이트 하도록 함
+//            if(num < nums[midIdx]){
+//                lastIdx = midIdx;
+//            } else{
+//                firstIdx = midIdx;
+//            }
+//
+//            midIdx = (firstIdx + lastIdx)/2;
+//
+//        }
 
         if (num == nums[midIdx]){
             return midIdx+1;
