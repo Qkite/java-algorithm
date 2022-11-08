@@ -19,10 +19,15 @@ public class BinarySearch {
             }
 
             midIdx = (firstIdx + lastIdx)/2;
-
         }
 
-        return num == nums[midIdx];
+        if(num == nums[midIdx]){
+            return true;
+        } if(num == nums[lastIdx]){
+            return true;
+        } else{
+            return false;
+        }
 
     }
 

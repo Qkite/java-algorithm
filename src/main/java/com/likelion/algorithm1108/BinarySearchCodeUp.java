@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class BinarySearchCodeUp {
 
-    public boolean getSolution(int[] nums, int num){
+    public int getSolution(int[] nums, int num){
         int firstIdx = 0;
         int lastIdx = nums.length-1;
         int midIdx = (firstIdx + lastIdx)/2;
@@ -22,7 +22,13 @@ public class BinarySearchCodeUp {
 
         }
 
-        return num == nums[midIdx];
+        if (num == nums[midIdx]){
+            return midIdx+1;
+        } else if (num == nums[lastIdx]) {
+            return lastIdx+1; // lastIndex에서도 생각해주어야 함
+        } else{
+            return -1;
+        }
 
     }
 
@@ -37,7 +43,8 @@ public class BinarySearchCodeUp {
         }
 
         BinarySearchCodeUp binarySearchCodeUp = new BinarySearchCodeUp();
-        System.out.println(binarySearchCodeUp.getSolution(numsArray, Integer.parseInt(info[1])));
+
+        System.out.println((binarySearchCodeUp.getSolution(numsArray, Integer.parseInt(info[1]))));
 
 
     }
