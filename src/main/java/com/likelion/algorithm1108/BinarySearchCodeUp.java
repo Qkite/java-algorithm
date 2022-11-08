@@ -2,7 +2,7 @@ package com.likelion.algorithm1108;
 
 import java.util.Scanner;
 
-public class BinarySearch {
+public class BinarySearchCodeUp {
 
     public boolean getSolution(int[] nums, int num){
         int firstIdx = 0;
@@ -27,11 +27,17 @@ public class BinarySearch {
     }
 
     public static void main(String[] args) {
-        BinarySearch binarySearch = new BinarySearch();
-        System.out.println(binarySearch.getSolution(new int[]{1,2,3,4,5,6,7,8,9,10,11,12,13}, 3));
-        System.out.println(binarySearch.getSolution(new int[]{1,3,4,5,6,7,9,10,11,13,15,16}, 12));
-        System.out.println(binarySearch.getSolution(new int[]{1,3,4,5,6,7,9,10,11,13,15,16,22,21,25,28}, 23));
+        Scanner scanner = new Scanner(System.in);
 
+        String[] info = scanner.nextLine().split(" ");
+        String[] inputArray = scanner.nextLine().split(" ");
+        int[] numsArray = new int[inputArray.length];
+        for (int i = 0; i < numsArray.length; i++) {
+            numsArray[i] = Integer.parseInt(inputArray[i]);
+        }
+
+        BinarySearchCodeUp binarySearchCodeUp = new BinarySearchCodeUp();
+        System.out.println(binarySearchCodeUp.getSolution(numsArray, Integer.parseInt(info[1])));
 
 
     }
