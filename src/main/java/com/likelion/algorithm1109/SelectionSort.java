@@ -1,5 +1,7 @@
 package com.likelion.algorithm1109;
 
+import java.util.Arrays;
+
 public class SelectionSort {
 
     public static void main(String[] args) {
@@ -18,10 +20,14 @@ public class SelectionSort {
                 }
 
             }
+
+            int temp = arr[idx];
+            arr[idx] = arr[minIdx];
+            arr[minIdx] = temp;
+
             System.out.println(minIdx);
+            System.out.println(Arrays.toString(arr));
         }
-
-
 
     }
 }
