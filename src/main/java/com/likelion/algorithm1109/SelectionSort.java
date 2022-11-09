@@ -10,13 +10,11 @@ public class SelectionSort {
         for (int i = 0; i < arr.length; i++) {
             // 최솟값이 들어있는 인덱스 찾기
             int idx = i;
-            int minIdx = idx;
-            int minValue = arr[minIdx];
+            int minIdx = idx;;
 
             for (int j = idx; j < arr.length; j++) {
-                if(arr[j] < minValue){
+                if(arr[j] < arr[minIdx]){
                     minIdx = j;
-                    minValue = arr[j];
                 }
 
             }
