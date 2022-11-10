@@ -12,7 +12,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class NotWantDuplicatedNum {
-    public List<Integer>  solution(int[] arr) {
+    public List<Integer> solution(int[] arr) {
 
         List<Integer> answer = new ArrayList<>();
 
@@ -40,6 +40,13 @@ public class NotWantDuplicatedNum {
 //        }
 
         return answer;
+    }
+
+    public static void main(String[] args) {
+
+        NotWantDuplicatedNum notWandDuplicatedNum = new NotWantDuplicatedNum();
+        System.out.println(notWandDuplicatedNum.solution(new int[] {1,3,5,4,4,1,6,5,1,3,2,1,1,2,2}));
+
     }
 
 }

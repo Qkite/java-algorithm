@@ -22,7 +22,6 @@ public class NotWandDuplicatedNumWithStack {
 
     }
 
-
     public static void main(String[] args) {
 
         NotWandDuplicatedNumWithStack notWandDuplicatedNumWithStack = new NotWandDuplicatedNumWithStack();
