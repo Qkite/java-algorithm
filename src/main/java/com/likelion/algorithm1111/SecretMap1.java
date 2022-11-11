@@ -56,6 +56,19 @@ public class SecretMap1 {
         return answer;
     }
 
+    String[] solution3(int n, int[] arr1, int[] arr2) {
+        String[] answer = new String[n];
+
+        for (int i = 0; i < n; i++) {
+            int move1 = (int) (n-1 - Math.floor(Math.log(arr1[i])/Math.log(2)));
+            int move2 = (int) (n-1 - Math.floor(Math.log(arr2[i])/Math.log(2)));
+            answer[i] = Integer.toBinaryString((arr1[i]<<move1)|(arr2[i]<<move2));
+
+        }
+
+        return answer;
+    }
+
 
 
 
@@ -68,6 +81,7 @@ public class SecretMap1 {
         SecretMap1 secretMap = new SecretMap1();
         System.out.println(secretMap.solution1(5, arr1, arr2));
         System.out.println(secretMap.solution2(5, arr1, arr2));
+        System.out.println(Arrays.toString(secretMap.solution3(5, arr1, arr2)));
 
     }
 
