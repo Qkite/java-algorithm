@@ -2,14 +2,18 @@ package com.likelion.algorithm1117;
 
 import com.likelion.algorithm1115.QuickSort2;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+import java.util.Objects;
 
 public class QuickSort3 {
 
-    private int[] sort(int[] ints, int leftIdx, int rightIdx) {
 
-//        int leftIdx = 0;
-//        int rightIdx = ints.length-1;
+    private int[] sort(int[] ints, int startIdx, int endIdx) {
+
+        int leftIdx = startIdx;
+        int rightIdx = endIdx;
         int pivotIdx = (leftIdx+rightIdx+1)/2;
 
         // pivot을 기준으로 left index의 값과 right index의 값을 바꾼다
@@ -34,8 +38,22 @@ public class QuickSort3 {
 
         }
 
+        // 무한 루프를 돕니다 - StackOverVlowError
+        // **재귀가 끝나는 조건을 추가**
+        // -> startIdx와 rightIdx, leftIdx, endIdx가 교차하는 시점이 생기면 끝남
+
+
+        if (startIdx < rightIdx){
+            sort(ints, startIdx, rightIdx);
+        }
+        if (leftIdx<endIdx){
+            sort(ints, leftIdx, endIdx);
+        }
+
+
         return ints;
     }
+
 
 
 
