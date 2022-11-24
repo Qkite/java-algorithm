@@ -3,8 +3,8 @@ package com.likelion.altorithm1124;
 import java.util.Arrays;
 import java.util.Scanner;
 
-// 계산한 적 있는 값은 적어두고 다시 보지 않음
-public class CodeUp1862 {
+// 코드업 1862 문제와 동일한 풀이
+public class CodeUp1916 {
 
     public void fibonacci(long[] arr, int nth){
 
@@ -20,9 +20,7 @@ public class CodeUp1862 {
         } else{
             if(arr[nth-1] == 0){
                 fibonacci(arr, nth-1);
-                arr[nth-1] = (arr[nth-2] + arr[nth-3]) % 1000000007;
-                //  arr[nth-1] = (arr[nth-2] + arr[nth-3]) % 10009;
-                // 로 바꾸면 코드업 1916번 문제도 해결!
+                arr[nth-1] = (arr[nth-2] + arr[nth-3]) % 10009;
             }
         }
 
@@ -38,10 +36,10 @@ public class CodeUp1862 {
 
 
     public static void main(String[] args) {
-        CodeUp1862 codeUp1862 = new CodeUp1862();
+        CodeUp1916 codeUp1916 = new CodeUp1916();
         Scanner scanner = new Scanner(System.in);
         int num = scanner.nextInt();
-        long[] fibArray = codeUp1862.saveNums(num);
+        long[] fibArray = codeUp1916.saveNums(num);
         System.out.println(fibArray[num-1]);
     }
 
