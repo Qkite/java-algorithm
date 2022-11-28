@@ -1,6 +1,6 @@
 package com.likelion.algorithm1128;
 
-public class PressAlphabet {
+public class PrintAlphabet {
 
     void oneLetter(){
 
@@ -25,10 +25,10 @@ public class PressAlphabet {
 
 
     public static void main(String[] args) {
-        PressAlphabet pressAlphabet = new PressAlphabet();
-        pressAlphabet.oneLetter();
+        PrintAlphabet printAlphabet = new PrintAlphabet();
+        printAlphabet.oneLetter();
 
-        pressAlphabet.twoLetter();
+        printAlphabet.twoLetter();
 
 
     }
