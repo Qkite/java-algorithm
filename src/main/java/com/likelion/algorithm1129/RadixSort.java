@@ -72,11 +72,19 @@ public class RadixSort {
             // 거기에서 1의 자리 수를 구해야함 -> %10
         }
 
-        System.out.println(Arrays.toString(queueArray));
+        int[] result = new int[inputs.length];
+        int idx = 0;
+
+        for (int i = 0; i < queueArray.length; i++) {
+            for (int j = 0; j < queueArray[i].size(); j++) {
+                result[idx] = queueArray[i].poll();
+                idx++;
+
+            }
+        }
 
 
-
-        return new int[10];
+        return result;
     }
 
 
