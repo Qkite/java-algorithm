@@ -52,6 +52,33 @@ public class RadixSort {
         return digits;
     }
 
+    int[] radixSortOfNDigit(int[] inputs){
+
+        Queue<Integer>[] queueArray = new Queue[10];
+
+        for (int i = 0; i < queueArray.length; i++) {
+            queueArray[i] = new ArrayDeque();
+        }
+
+        for (int i = 0; i < inputs.length; i++) {
+            int digit = 10;
+
+            // 10의 자리 수를 기준으로 분류
+            // digit을 100으로 바꾸면 100의 자리 기준
+            queueArray[Math.floorDiv(inputs[i], digit) % 10].add(inputs[i]);
+
+
+            // Math.floorDiv(inputs[i], digit)을 하면 10으로 나눈 나머지
+            // 거기에서 1의 자리 수를 구해야함 -> %10
+        }
+
+        System.out.println(Arrays.toString(queueArray));
+
+
+
+        return new int[10];
+    }
+
 
     public static void main(String[] args) {
 
@@ -59,6 +86,7 @@ public class RadixSort {
         // 0이상의 정수에서만 사용할 수 있음
         System.out.println(Arrays.toString(radixSort.radixSortOfOneDigit(new int[]{7,4,5,9,1,0})));
         System.out.println(radixSort.calculateDigits(new int[]{7,4,5,9,1,0,10,12,16,15,255,0,5,1654}));
+        System.out.println(Arrays.toString(radixSort.radixSortOfNDigit(new int[]{7, 4, 5, 9, 1, 0, 10, 12, 16, 15, 255, 0, 5, 1654})));
 
     }
 }
