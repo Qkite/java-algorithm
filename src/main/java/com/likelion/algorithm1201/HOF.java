@@ -14,8 +14,8 @@ public class HOF {
             if(integerQueue.size() < k){
                 integerQueue.add(score[i]);
                 int dd = integerQueue.peek();
-                System.out.println(integerQueue +"1");
-                System.out.printf("%d %d\n", idx, dd);
+//                System.out.println(integerQueue +"1");
+//                System.out.printf("%d %d\n", idx, dd);
                 minScores[idx] = dd;
                 idx++;
             } else{
@@ -27,14 +27,14 @@ public class HOF {
                     minScores[idx] = dd;
 
 
-                    System.out.println(integerQueue + "2");
-                    System.out.printf("%d %d\n", idx, dd);
+//                    System.out.println(integerQueue + "2");
+//                    System.out.printf("%d %d\n", idx, dd);
                     idx++;
                 } else{
                     int dd =integerQueue.peek();
                     minScores[idx] = dd;
-                    System.out.println(integerQueue + "3");
-                    System.out.printf("%d %d\n", idx, dd);
+//                    System.out.println(integerQueue + "3");
+//                    System.out.printf("%d %d\n", idx, dd);
 
                     idx++;
                 }
@@ -51,18 +51,16 @@ public class HOF {
 
         int minValue = input[0];
         for (int i = 0; i < input.length; i++) {
-
-
             if(integerList.size() < k){
                 integerList.add(input[i]);
-                minValue = minValue > input[i] ? input[i]:minValue;
+                minValue = Math.min(minValue, input[i]);
 
             } else{
-                if(minValue > input[i]){
+                if(minValue < input[i]){
 
                     int minIdx = integerList.indexOf(minValue);
                     integerList.remove(minIdx);
-                    integerList.add(input[0]);
+                    integerList.add(input[i]);
 
                     Collections.sort(integerList);
 
@@ -87,9 +85,8 @@ public class HOF {
     public static void main(String[] args) {
 
         HOF hof = new HOF();
-        System.out.println(Arrays.toString(hof.selectKNumWithPriorityQueue(3, new int[]{10,100,20,150,1,100,200})));
-
-        System.out.println(Arrays.toString(hof.selectKNumWithPriorityQueue(4, new int[]{0, 300, 40, 300, 20, 70, 150, 50, 500, 1000})));
+//        System.out.println(Arrays.toString(hof.selectKNumWithPriorityQueue(3, new int[]{10,100,20,150,1,100,200})));
+//        System.out.println(Arrays.toString(hof.selectKNumWithPriorityQueue(4, new int[]{0, 300, 40, 300, 20, 70, 150, 50, 500, 1000})));
 
         System.out.println(Arrays.toString(hof.selectKNumWithList(3, new int[]{10, 100, 20, 150, 1, 100, 200})));
         System.out.println(Arrays.toString(hof.selectKNumWithList(4, new int[]{0, 300, 40, 300, 20, 70, 150, 50, 500, 1000})));
