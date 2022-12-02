@@ -15,7 +15,7 @@ public class PrimeFactor {
         if (num <= primeFactor) {
             return primeFactor;
         } else {
-            for (int i = 2; i <= num; i++) {
+            for (int i = 2; i*i <= num; i++) {
 //                System.out.println("i = " + i);
                 if (num % i == 0) {
                     if (primeFactor <= i) primeFactor = i;
@@ -25,15 +25,15 @@ public class PrimeFactor {
                 }
             }
 
-//            System.out.println("num = " + num);
-//            System.out.println("primeFactor = " + primeFactor);
-
-            // for 조건이 제대로 안먹음...
+            if (divisor == 0){
+                return num;
+            } else{
+                return maxPrimeFactor(num / divisor, primeFactor);
+            }
         }
 
-        return maxPrimeFactor(num / divisor, primeFactor);
-    }
 
+    }
 
 
     public static void main(String[] args) throws IOException {
