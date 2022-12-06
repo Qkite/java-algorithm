@@ -93,6 +93,7 @@ public class Heap {
         int depth = (int) (Math.floor(Math.log((arr.length-1)/2)/Math.log(2))+1);
         // 트리의 깊이
 
+
         System.out.println("depth: " + depth);
         for (int i = (int) (Math.pow(2, depth-1)*2 - 2); i>=0; i--) {
             System.out.println("parentIdx" + i);
