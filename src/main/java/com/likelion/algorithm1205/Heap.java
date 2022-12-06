@@ -69,39 +69,60 @@ public class Heap {
             arr[parentIdx] = arr[childIdx1];
             arr[childIdx1] = temp;
 
+            arr =  makeHeap2(arr, childIdx1);
+
         } else if (greaterIdx == childIdx2) {
             int temp = arr[parentIdx];
             arr[parentIdx] = arr[childIdx2];
             arr[childIdx2] = temp;
-        }
 
-        if(parentIdx > 0){
-            if (arr[parentIdx] > arr[(parentIdx-1)/2]){
-                arr = makeHeap2(arr, (parentIdx-1)/2);
-            }
-
+            arr =  makeHeap2(arr, childIdx2);
         }
 
         return arr;
     }
 
-    int[] sort(int[] arr){
-
+    int[] heapSorting(int[] arr){
         // 부모 노드의 끝: 0*2, 1*2, 3*2, 7*2, 15*2,...
         // (2^(depth-1) -1)*2
 
-        int depth = (int) (Math.floor(Math.log((arr.length-1)/2)/Math.log(2))+1);
+        if(arr.length == 1){
+            return arr;
+        }
+
+        int depth = (int)(Math.floor(Math.log((arr.length-1)/2)/Math.log(2)))+1;
         // 트리의 깊이
 
+//        System.out.println("depth: " + depth);
 
-        System.out.println("depth: " + depth);
-        for (int i = (int) (Math.pow(2, depth-1)*2 - 2); i>=0; i--) {
-            System.out.println("parentIdx" + i);
+        for (int i=(int) (Math.pow(2, depth-1)*2 - 2); i >=0 ; i--) {
+//            System.out.println("parentIdx" + i);
             arr = makeHeap2(arr, i);
         }
 
         return arr;
+
     }
+
+    int[] sort(int[] arr){
+
+        int[] answer= new int[arr.length];
+
+
+
+        for (int i = 0; i < answer.length; i++) {
+            answer[i] = heapSorting(arr)[0];
+            arr = Arrays.copyOfRange(arr, 1, arr.length);
+//            System.out.println(Arrays.toString(arr));
+//            System.out.println(Arrays.toString(answer));
+        }
+
+
+        return answer;
+
+
+    }
+
 
     public static void main(String[] args) {
 
@@ -110,7 +131,10 @@ public class Heap {
         heap.convertToHeap(10);
         heap.convertToHeap(33);
         System.out.println(Arrays.toString(heap.makeHeap2(new int[]{6, 5, 7, 8}, 1)));
-        System.out.println(Arrays.toString(heap.sort(new int[]{4,8,5,7,3,2,9,6,7})));
+        System.out.println(Arrays.toString(heap.sort(new int[]{5, 8, 4, 7, 3, 2, 9, 6, 7})));
+        System.out.println(Arrays.toString(heap.sort(new int[]{10, 9, 7, 8, 3, 2, 4, 6, 5, 1})));
+
+
 
 
 
