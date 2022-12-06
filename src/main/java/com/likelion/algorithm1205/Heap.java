@@ -62,6 +62,8 @@ public class Heap {
         }
 
 
+        //  자식 index로 바뀜 -> heap하지 않음 ->
+        //  자식 노드와 부모 노드의 값을 바꿈
         if(greaterIdx == childIdx1){
             int temp = arr[parentIdx];
             arr[parentIdx] = arr[childIdx1];
@@ -86,12 +88,13 @@ public class Heap {
     int[] sort(int[] arr){
 
         // 부모 노드의 끝: 0*2, 1*2, 3*2, 7*2, 15*2,...
-        // (2^depth -1)*2
+        // (2^(depth-1) -1)*2
 
         int depth = (int) (Math.floor(Math.log((arr.length-1)/2)/Math.log(2))+1);
+        // 트리의 깊이
 
         System.out.println("depth: " + depth);
-        for (int i = 0; i <= (Math.pow(2, depth)*2 - 2); i++) {
+        for (int i = (int) (Math.pow(2, depth-1)*2 - 2); i>=0; i--) {
             System.out.println("parentIdx" + i);
             arr = makeHeap2(arr, i);
         }
@@ -105,7 +108,7 @@ public class Heap {
         System.out.println(Arrays.toString(heap.makeHeap1(new int[]{6, 5, 7}, 8)));
         heap.convertToHeap(10);
         heap.convertToHeap(33);
-        System.out.println(Arrays.toString(heap.sort(new int[]{6, 5, 7, 8})));
+        System.out.println(Arrays.toString(heap.makeHeap2(new int[]{6, 5, 7, 8}, 1)));
         System.out.println(Arrays.toString(heap.sort(new int[]{4,8,5,7,3,2,9,6,7})));
 
 
