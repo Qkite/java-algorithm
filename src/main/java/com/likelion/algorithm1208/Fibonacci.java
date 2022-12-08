@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class Fibonacci {
 
-    int[] fibonacci(int nth, int[] arr){
+    int fibonacci(int nth, int[] arr){
 
         if(nth == 1){
             arr[0] = 1;
@@ -19,8 +19,12 @@ public class Fibonacci {
             }
         }
 
+        System.out.println(arr);
 
-        return arr;
+        // return arr; -> 수열 전체를 print
+
+
+        return arr[nth-1];
     }
 
 
@@ -30,7 +34,7 @@ public class Fibonacci {
 
         Fibonacci fibonacci = new Fibonacci();
 
-        System.out.println(Arrays.toString(fibonacci.fibonacci(num, new int[num])));
+        System.out.println(fibonacci.fibonacci(num, new int[num]));
 
     }
 }
