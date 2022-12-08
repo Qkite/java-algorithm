@@ -1,24 +1,46 @@
 package com.likelion.algorithm1208;
 
+import java.util.Arrays;
+
 public class LCS {
 
     int calculateLength(String str1, String str2){
+        
+        // str1.length(), str2.length() 만큼으로 잡으면
+        // 첫번째 행을 따로 처리해주어야 함
+        // 값이 0인 행과 열을 추가로 삽입하여
+        // 일괄적으로 진행
 
-        int[][] arr = new int[str2.length()][str1.length()];
+        int[][] arr = new int[str2.length()+1][str1.length()+1];
 
-        for (int i = 0; i < str2.length(); i++) {
-            for (int j = 0; j < str1.length(); j++) {
+        for (int i = 1; i <= str2.length(); i++) {
+            for (int j = 1; j <= str1.length(); j++) {
 
+                if(str1.charAt(j-1) == str2.charAt(i-1)){
+                    arr[i][j] = Math.max(arr[i][j-1], arr[i-1][j])+1;
+                    
+                } else{
+                    arr[i][j] = Math.max(arr[i][j-1], arr[i-1][j]);
 
-                if()
+                }
 
             }
         }
+
+        System.out.println(Arrays.deepToString(arr));
+        
+        return arr[str2.length()][str1.length()];
 
 
     }
 
     public static void main(String[] args) {
+        String seq1 = "ABCDCBA";
+        String seq2 = "DCABDC";
+
+
+        LCS lcs = new LCS();
+        System.out.println(lcs.calculateLength(seq1, seq2));
 
     }
 }
