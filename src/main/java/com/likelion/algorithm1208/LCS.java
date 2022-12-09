@@ -1,5 +1,8 @@
 package com.likelion.algorithm1208;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Arrays;
 
 public class LCS {
@@ -17,8 +20,8 @@ public class LCS {
             for (int j = 1; j <= str1.length(); j++) {
 
                 if(str1.charAt(j-1) == str2.charAt(i-1)){
-                    arr[i][j] = Math.max(arr[i][j-1], arr[i-1][j])+1;
-                    
+                    arr[i][j] = arr[i-1][j-1] + 1;
+
                 } else{
                     arr[i][j] = Math.max(arr[i][j-1], arr[i-1][j]);
 
@@ -34,9 +37,13 @@ public class LCS {
 
     }
 
-    public static void main(String[] args) {
-        String seq1 = "ABCDCBA";
-        String seq2 = "DCABDC";
+    public static void main(String[] args) throws IOException {
+
+//        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+//        String seq1 = bufferedReader.readLine();
+//        String seq2 = bufferedReader.readLine();
+        String seq1 = "sixhckblwlhaoisdhbiojawkldafjlkasbagiu";
+        String seq2 = "kvinxnmcnklbhoqwidjfiojiohas";
 
 
         LCS lcs = new LCS();
