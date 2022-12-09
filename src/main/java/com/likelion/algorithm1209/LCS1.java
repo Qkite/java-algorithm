@@ -3,19 +3,23 @@ package com.likelion.algorithm1209;
 public class LCS1 {
 
     int LCS(String str1, String str2){
-        int answer = 0;
 
-        int[][] arr = new int[str2.length()][str1.length()];
+        int[][] arr = new int[str2.length()+1][str1.length()+1];
 
-        for (int i = 0; i < str2.length(); i++) {
-            for (int j = 0; j < str1.length(); j++) {
-                System.out.printf("str1: %s,  str2: %s\n", str1.charAt(j), str2.charAt(i));
+        for (int i = 1; i <= str2.length(); i++) {
+            for (int j = 1; j <= str1.length(); j++) {
+
+                if(str1.charAt(j-1) == str2.charAt(i-1)){
+                    arr[i][j] = Math.max(arr[i-1][j], arr[i][j-1]) + 1;
+                } else{
+                    arr[i][j] = Math.max(arr[i-1][j], arr[i][j-1]);
+                }
 
 
             }
         }
 
-        return answer;
+        return arr[str2.length()][str1.length()];
     }
 
 
@@ -25,6 +29,6 @@ public class LCS1 {
         String seq2 = "DCABDC";
 
         LCS1 lcs1 = new LCS1();
-        lcs1.LCS(seq1, seq2);
+        System.out.println(lcs1.LCS(seq1, seq2));
     }
 }
