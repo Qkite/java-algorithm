@@ -12,6 +12,7 @@ public class OptimalStrategy2 {
             sumArray[i][i] = coins[i];
         }
 
+        /*
 
         for (int i = 0; i < coins.length-1; i++) {
             sumArray[i][i+1] = sumArray[i][i] + sumArray[i+1][i+1];
@@ -26,6 +27,15 @@ public class OptimalStrategy2 {
         for (int i = 0; i < coins.length-3; i++) {
             sumArray[i][i+3] = sumArray[i][i+2] + sumArray[i+1][i+3];
 
+        }
+        */
+
+
+        for (int i = 1; i < coins.length; i++) {
+            for (int j = 0; j < coins.length-i; j++) {
+                sumArray[j][j+i] = sumArray[j][j+i] + sumArray[j+1][j+i];
+
+            }
         }
 
 
