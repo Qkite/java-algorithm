@@ -36,21 +36,47 @@ public class OptimalStrategy {
                 result[i][i+1] = new Pair(input[i+1], input[i]);
             }
 
+        }
+
+        // 3개가 있는 경우
+
+        for (int i = 0; i < input.length-2; i++) {
+            int left1 = input[i] + (int)result[i+1][i+2].right;
+            int left2 = input[i+2] + (int)result[i][i+1].right;
+
+            if(left1>= left2){
+                result[i][i+2] = new Pair(left1,(int)result[i+1][i+2].left);
+            } else{
+                result[i][i+2] = new Pair(left2, (int)result[i][i+1].left);
+            }
 
         }
+
+        // 4개가 있는 경우 -> 다시 하기
+
+        for (int i = 0; i < input.length-3; i++) {
+            int left1 = input[i] + (int)result[i][i+2].right;
+            int left2 = input[i+3] + (int)result[i+1][i+3].right;
+
+            if(left1>= left2){
+                result[i][i+3] = new Pair(left1,(int)result[i+1][i+3].left);
+            } else{
+                result[i][i+3] = new Pair(left2, (int)result[i][i+2].left);
+            }
+
+        }
+
+
 
 
 
         for (int i = 0; i < result.length; i++) {
-
-            System.out.printf("%d %d, left: %d, right: %d \n", i, i, result[i][i].left, result[i][i].right);
-
+            for (int j = i; j < result.length; j++) {
+                System.out.printf("%d %d, left: %d, right: %d \n", i, j, result[i][j].left, result[i][j].right);
+            }
 
         }
 
-        for (int i = 0; i < result.length-1; i++) {
-            System.out.printf("%d %d, left: %d, right: %d \n", i, i+1, result[i][i+1].left, result[i][i+1].right);
-        }
 
         return result;
 
