@@ -38,11 +38,14 @@ public class FromToSum {
             result[i][i] = input[i];
         }
 
-        // 둘째줄
-        for (int i = 0; i < input.length-1; i++) {
-            result[i][i+1] = result[i][i] + result[i+1][i+1];
+        // 둘째줄 이후
+        for (int i = 0; i < input.length; i++) {
+            for (int j = 1; j < input.length-i; j++) {
+                result[i][i+j] = result[i][i+j-1] + result[i+j][i+j];
+            }
 
         }
+
 
 
         return result;
